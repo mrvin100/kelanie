@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
@@ -13,100 +14,101 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 
-const jewelryCategories = [
+interface JewelryCategories {
+  title: string; 
+  href: string; 
+  description: string; 
+  featured?: { 
+      title: string; 
+      href: string; 
+      description: string; 
+      image: string; 
+  }; 
+  subitems: { title: string; href: string }[]; 
+  links?: { title: string; href: string }[] 
+}
+
+const jewelryCategories: JewelryCategories [] = [
   {
-    title: "Gifts",
-    href: "/gifts",
-    description: "Curated selections for every occasion and recipient.",
-    subitems: [
-      { title: "Birthday Gifts", href: "/gifts/birthday" },
-      { title: "Anniversary Presents", href: "/gifts/anniversary" },
-      { title: "Corporate Gifts", href: "/gifts/corporate" },
-    ],
+      title: "The Square",
+      href: "/square",
+      description: "Bold and balanced, our square collection makes a statement.",
+      subitems: [
+          { title: "Square Necklaces", href: "/square/necklaces" },
+          { title: "Square Earrings", href: "/square/earrings" },
+          { title: "Square Rings", href: "/square/rings" },
+          { title: "Square Bracelets", href: "/square/bracelets" },
+      ],
+      featured: {
+          title: "The Square Collection",
+          href: "/square/featured",
+          description: "Explore the geometric beauty of our Square collection.",
+          image: "/images/square-collection.jpg" 
+      }
   },
   {
-    title: "Jewelry",
-    href: "/jewelry",
-    description: "Timeless pieces that complement every style.",
-    subitems: [
-      { title: "Necklaces", href: "/jewelry/necklaces" },
-      { title: "Earrings", href: "/jewelry/earrings" },
-      { title: "Bracelets", href: "/jewelry/bracelets" },
-      { title: "Rings", href: "/jewelry/rings" },
-    ],
+      title: "The Circle",
+      href: "/circle",
+      description: "Timeless and elegant, our circle collection is perfect for everyday wear.",
+      subitems: [
+          { title: "Circle Necklaces", href: "/circle/necklaces" },
+          { title: "Circle Earrings", href: "/circle/earrings" },
+          { title: "Circle Rings", href: "/circle/rings" },
+          { title: "Circle Bracelets", href: "/circle/bracelets" },
+      ],
+      featured: {
+          title: "Circle Highlights",
+          href: "/circle/featured",
+          description: "Discover the versatility of our Circle collection.",
+          image: "/images/circle-collection.jpg" 
+      }
   },
   {
-    title: "High Jewelry",
-    href: "/high-jewelry",
-    description: "Exquisite, one-of-a-kind pieces for the discerning collector.",
-    subitems: [
-      { title: "Diamond Collections", href: "/high-jewelry/diamond" },
-      { title: "Precious Gemstones", href: "/high-jewelry/gemstones" },
-      { title: "Bespoke Creations", href: "/high-jewelry/bespoke" },
-    ],
+      title: "The Triangle",
+      href: "/triangle",
+      description: "Edgy and modern, our triangle collection is perfect for those who want to stand out.",
+      subitems: [
+          { title: "Triangle Necklaces", href: "/triangle/necklaces" },
+          { title: "Triangle Earrings", href: "/triangle/earrings" },
+          { title: "Triangle Rings", href: "/triangle/rings" },
+          { title: "Triangle Bracelets", href: "/triangle/bracelets" },
+      ],
+      featured: {
+          title: "Triangle Trends",
+          href: "/triangle/featured",
+          description: "Embrace the unique style of our Triangle collection.",
+          image: "/images/triangle-collection.jpg" 
+      }
   },
   {
-    title: "Love & Engagement",
-    href: "/love-and-engagement",
-    description: "Celebrate your love with our stunning engagement and wedding collections.",
-    subitems: [
-      { title: "Engagement Rings", href: "/love-and-engagement/engagement-rings" },
-      { title: "Wedding Bands", href: "/love-and-engagement/wedding-bands" },
-      { title: "Bridal Sets", href: "/love-and-engagement/bridal-sets" },
-    ],
-  },
-  {
-    title: "Fine Watches",
-    href: "/watches",
-    description: "Precision timepieces that blend artistry with functionality.",
-    subitems: [
-      { title: "Luxury Watches", href: "/watches/luxury" },
-      { title: "Sports Watches", href: "/watches/sports" },
-      { title: "Dress Watches", href: "/watches/dress" },
-    ],
-  },
-  {
-    title: "Home",
-    href: "/home",
-    description: "Elevate your living spaces with our curated home collections.",
-    subitems: [
-      { title: "Decor", href: "/home/decor" },
-      { title: "Tableware", href: "/home/tableware" },
-      { title: "Art Objects", href: "/home/art-objects" },
-    ],
-  },
-  {
-    title: "Accessories",
-    href: "/accessories",
-    description: "Complete your look with our range of sophisticated accessories.",
-    subitems: [
-      { title: "Handbags", href: "/accessories/handbags" },
-      { title: "Scarves", href: "/accessories/scarves" },
-      { title: "Sunglasses", href: "/accessories/sunglasses" },
-    ],
-  },
-  {
-    title: "Stories",
-    href: "/stories",
-    description: "Discover the inspiration and craftsmanship behind our collections.",
-    subitems: [
-      { title: "Brand Heritage", href: "/stories/heritage" },
-      { title: "Artisan Spotlight", href: "/stories/artisans" },
-      { title: "Design Inspiration", href: "/stories/inspiration" },
-    ],
+      title: "The Oval",
+      href: "/oval",
+      description: "Soft and feminine, our oval collection is perfect for adding a touch of elegance to any outfit.",
+      subitems: [
+          { title: "Oval Necklaces", href: "/oval/necklaces" },
+          { title: "Oval Earrings", href: "/oval/earrings" },
+          { title: "Oval Rings", href: "/oval/rings" },
+          { title: "Oval Bracelets", href: "/oval/bracelets" },
+      ],
+      featured: {
+          title: "Oval Elegance",
+          href: "/oval/featured",
+          description: "Experience the timeless beauty of our Oval collection.",
+          image: "/images/oval-collection.jpg" 
+      }
   },
 ];
 
 export const SubNavigation = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="max-w-full justify-center">
       <NavigationMenuList>
         {jewelryCategories.map((category) => (
           <NavigationMenuItem key={category.title}>
             <NavigationMenuTrigger>{category.title}</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
+              <div className="grid w-[800px] lg:w-[1280px] gap-3 md:grid-cols-2 lg:grid-cols-3">
+                <div className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
@@ -120,13 +122,45 @@ export const SubNavigation = () => {
                       </p>
                     </Link>
                   </NavigationMenuLink>
-                </li>
-                {category.subitems.map((item) => (
-                  <ListItem key={item.title} href={item.href} title={item.title}>
-                    {item.title}
-                  </ListItem>
-                ))}
-              </ul>
+                </div>
+                <div className="col-span-1 lg:col-span-2">
+                  <div className="grid gap-4">
+                    {category.featured && (
+                      <FeaturedItem item={category.featured} />
+                    )}
+                    <div>
+                      <h3 className="my-2 ml-3 text-sm font-medium leading-none">
+                        Categories
+                      </h3>
+                      <ul className="grid gap-2 md:grid-cols-2">
+                        {category.subitems.map((item) => (
+                          <ListItem
+                            key={item.title}
+                            href={item.href}
+                            title={item.title}
+                          />
+                        ))}
+                      </ul>
+                    </div>
+                    {category.links && (
+                      <div>
+                        <h3 className="mb-2 text-sm font-medium leading-none">
+                          Useful Links
+                        </h3>
+                        <ul className="grid gap-2 md:grid-cols-2">
+                          {category.links.map((link) => (
+                            <ListItem
+                              key={link.title}
+                              href={link.href}
+                              title={link.title}
+                            />
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
         ))}
@@ -134,6 +168,25 @@ export const SubNavigation = () => {
     </NavigationMenu>
   );
 };
+
+const FeaturedItem = ({ item }: { item: { title: string; href: string; description: string; image: string } }) => (
+  <Link
+    href={item.href}
+    className="flex gap-4 rounded-lg p-2 transition-colors hover:bg-accent"
+  >
+    <Image
+      src={item.image}
+      alt={item.title}
+      width={100}
+      height={100}
+      className="rounded-md object-cover"
+    />
+    <div>
+      <h3 className="text-sm font-medium leading-none">{item.title}</h3>
+      <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+    </div>
+  </Link>
+);
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -151,9 +204,11 @@ const ListItem = React.forwardRef<
           {...props}
         >
           <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
+          {children && (
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+              {children}
+            </p>
+          )}
         </a>
       </NavigationMenuLink>
     </li>

@@ -6,5 +6,5 @@ interface AppContainerProps {
     className?: string
 }
 export const AppContainer:FC<AppContainerProps> = ({children, className}) => {
-    return ( <div className={cn("max-w-7xl mx-auto p-4", className)}>{children}</div> );
+    return ( <div className={cn("max-w-7xl mx-auto", className)}>{children}</div> );
 }

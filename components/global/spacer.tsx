@@ -16,7 +16,7 @@ export const Spacer: FC<SpacerProps> = ({
 }) => {
   return (
     <div
-      className={cn("border bg-muted h-20 lg:h-40", {
+      className={cn("h-20 lg:h-40", {
         "h-3 lg:h-6": extraSmall,
         "h-6 lg:h-10": tooSmall,
         "h-10 lg:h-20": small,
