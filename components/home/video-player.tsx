@@ -92,9 +92,9 @@ const VideoPlayerControls: FC<VideoPlayerControlsProps> = ({
     <div className="flex justify-between w-full">
       <Button variant={'ghost'} size={'icon'} onClick={onMuteunMute} className="border text-white rounded-full">
         {isMuted ? (
-          <Volume1 className="h-8 w-8" />
-        ) : (
           <VolumeX className="h-8 w-8" />
+        ) : (
+          <Volume1 className="h-8 w-8" />
         )}
       </Button>
       <div className="relative flex justify-center items-center">
