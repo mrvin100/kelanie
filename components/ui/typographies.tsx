@@ -24,7 +24,7 @@ export function TypographyH4({ children, className }: { children: ReactNode; cla
 }
 
 export function TypographyP({ children, className }: { children: ReactNode; className?: string }) {
-   return <p className={cn('leading-7', className)}>{children}</p>
+   return <p className={cn('leading-7 text-sm', className)}>{children}</p>
 }
 
 export function TypographyBlockquote({ children, className }: { children: ReactNode; className?: string }) {

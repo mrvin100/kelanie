@@ -101,13 +101,13 @@ const jewelryCategories: JewelryCategories [] = [
 
 export const SubNavigation = () => {
   return (
-    <NavigationMenu className="max-w-full justify-center">
+    <NavigationMenu className="hidden md:block max-w-full justify-center">
       <NavigationMenuList>
         {jewelryCategories.map((category) => (
           <NavigationMenuItem key={category.title}>
             <NavigationMenuTrigger>{category.title}</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="grid w-[800px] lg:w-[1280px] gap-3 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid w-[780px] lg:w-[1080px] xl:w-[1280px] gap-3 md:grid-cols-2 lg:grid-cols-3">
                 <div className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link

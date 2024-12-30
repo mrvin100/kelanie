@@ -1,5 +1,5 @@
 import { AppContainer, Spacer } from "@/components/global";
-import { HomeExperience } from "@/components/home";
+import { HomeExperience, HomePublication } from "@/components/home";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
           <Button>Hello world</Button>
         </div>
       </AppContainer>
+      <HomePublication />
       <HomeExperience />
       <Spacer extraSmall />
     </>

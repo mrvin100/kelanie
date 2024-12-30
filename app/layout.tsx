@@ -5,7 +5,7 @@ import { Header } from "@/components/global";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "700"],
+  weight: ["100", "200", "300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} antialiased  font-light`}>
         <Header />
         {children}
       </body>

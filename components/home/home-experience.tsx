@@ -49,23 +49,23 @@ const experiences: ExperienceType[] = [
 export const HomeExperience = () => {
   return (
     <section className="bg-stone-50 p-4 my-4">
-      <AppContainer>
+      <AppContainer className="max-w-full">
         <Spacer extraSmall />
         <TypographyH2 className="text-center">
           The Kelanie Experience
         </TypographyH2>
         <Spacer tooSmall />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
           {experiences.map((experience) => (
             <div
               key={experience.title}
-              className="flex justify-center flex-col gap-y-2 gap-x-1"
+              className="flex justify-center flex-col gap-4 gap-y-2"
             >
               <experience.icon className="w-8 h-8 mx-auto inline-block font-extralight" />
-              <TypographyH3 className="capitalize">
+              <TypographyH3 className="capitalize !text-sm font-normal">
                 {experience.title}
               </TypographyH3>
-              <TypographyP>{experience.description}</TypographyP>
+              <TypographyP className="mx-auto max-w-xs">{experience.description}</TypographyP>
               <Button variant={"link"} asChild>
                 <Link href={experience.link.href}>
                   {experience.link.text}&nbsp;
