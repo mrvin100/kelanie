@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 "use client";
 import { useEffect, useRef, useState, FC } from "react";
 import { Pause, Play, Volume1, VolumeX } from "lucide-react";
@@ -7,8 +8,8 @@ export const VideoPlayer: FC = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoDuration, setVideoDuration] = useState<number>();
-  const [videoProgress, setVideoProgress] = useState<number>();
+  const [videoDuration, setVideoDuration] = useState<number>(0);
+  const [videoProgress, setVideoProgress] = useState<number>(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -67,18 +68,18 @@ export const VideoPlayer: FC = () => {
   );
 };
 interface VideoPlayerControlsProps {
-  progress: number | undefined;
+  progress: number;
   isPaused: boolean;
   isMuted: boolean;
   onPlayPause: () => void;
   onMuteunMute: () => void;
-  size?: number | undefined;
-  width?: number | undefined;
+  size?: number;
+  width?: number;
 }
 const VideoPlayerControls: FC<VideoPlayerControlsProps> = ({
   progress,
   isPaused,
-  isMuted, 
+  isMuted,
   onPlayPause,
   onMuteunMute,
   size = 48,
@@ -90,7 +91,12 @@ const VideoPlayerControls: FC<VideoPlayerControlsProps> = ({
   const dashOffset = (dashArray * (1 - progress)).toString();
   return (
     <div className="flex justify-between w-full">
-      <Button variant={'ghost'} size={'icon'} onClick={onMuteunMute} className="border text-white rounded-full">
+      <Button
+        variant={"ghost"}
+        size={"icon"}
+        onClick={onMuteunMute}
+        className="border text-white rounded-full"
+      >
         {isMuted ? (
           <VolumeX className="h-8 w-8" />
         ) : (
