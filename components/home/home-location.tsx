@@ -3,8 +3,9 @@ import { AppContainer } from "../global";
 import { Button } from "../ui/button";
 import { TypographyH2, TypographyP } from "../ui/typographies";
 import Image from "next/image";
+import { FC } from "react";
 
-export const HomeLocation = () => {
+export const HomeLocation:FC = () => {
   return (
     <section>
       <AppContainer className="text-center grid md:grid-cols-3 items-center gap-4 max-w-full">

@@ -10,6 +10,7 @@ import { AppContainer, Spacer } from "../global";
 import { TypographyH2, TypographyH3, TypographyP } from "../ui/typographies";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { FC } from "react";
 
 interface ExperienceType {
   icon: LucideIcon;
@@ -46,7 +47,7 @@ const experiences: ExperienceType[] = [
   },
 ];
 
-export const HomeExperience = () => {
+export const HomeExperience:FC = () => {
   return (
     <section className="bg-stone-50 p-4 my-4">
       <AppContainer className="max-w-full">

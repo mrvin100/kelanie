@@ -3,8 +3,9 @@ import { Button } from "../ui/button";
 import { TypographyH2, TypographyP } from "../ui/typographies";
 import { AppContainer } from "../global";
 import { VideoPlayer } from "./video-player";
+import { FC } from "react";
 
-export const HomePublication = () => {
+export const HomePublication:FC = () => {
   return (
     <section>
       <AppContainer className="text-center grid md:grid-cols-3 items-center gap-4 max-w-full">

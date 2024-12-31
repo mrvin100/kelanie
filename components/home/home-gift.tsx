@@ -3,8 +3,9 @@ import { AppContainer } from "../global";
 import { TypographyH2, TypographyP } from "../ui/typographies";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
+import { FC } from "react";
 
-export const HomeGift = () => {
+export const HomeGift:FC = () => {
   return (
     <section>
       <AppContainer className="w-full max-w-full h-full relative">
