@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,99 +12,103 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { FC, forwardRef } from "react";
 
 interface JewelryCategories {
-  title: string; 
-  href: string; 
-  description: string; 
-  featured?: { 
-      title: string; 
-      href: string; 
-      description: string; 
-      image: string; 
-  }; 
-  subitems: { title: string; href: string }[]; 
-  links?: { title: string; href: string }[] 
+  title: string;
+  href: string;
+  description: string;
+  featured?: {
+    title: string;
+    href: string;
+    description: string;
+    image: string;
+  };
+  subitems: { title: string; href: string }[];
+  links?: { title: string; href: string }[];
 }
 
-const jewelryCategories: JewelryCategories [] = [
+const jewelryCategories: JewelryCategories[] = [
   {
-      title: "The Square",
-      href: "/square",
-      description: "Bold and balanced, our square collection makes a statement.",
-      subitems: [
-          { title: "Square Necklaces", href: "/square/necklaces" },
-          { title: "Square Earrings", href: "/square/earrings" },
-          { title: "Square Rings", href: "/square/rings" },
-          { title: "Square Bracelets", href: "/square/bracelets" },
-      ],
-      featured: {
-          title: "The Square Collection",
-          href: "/square/featured",
-          description: "Explore the geometric beauty of our Square collection.",
-          image: "/images/square-collection.jpg" 
-      }
+    title: "The Square",
+    href: "/square",
+    description: "Bold and balanced, our square collection makes a statement.",
+    subitems: [
+      { title: "Square Necklaces", href: "/square/necklaces" },
+      { title: "Square Earrings", href: "/square/earrings" },
+      { title: "Square Rings", href: "/square/rings" },
+      { title: "Square Bracelets", href: "/square/bracelets" },
+    ],
+    featured: {
+      title: "The Square Collection",
+      href: "/square/featured",
+      description: "Explore the geometric beauty of our Square collection.",
+      image: "/images/square-collection.jpg",
+    },
   },
   {
-      title: "The Circle",
-      href: "/circle",
-      description: "Timeless and elegant, our circle collection is perfect for everyday wear.",
-      subitems: [
-          { title: "Circle Necklaces", href: "/circle/necklaces" },
-          { title: "Circle Earrings", href: "/circle/earrings" },
-          { title: "Circle Rings", href: "/circle/rings" },
-          { title: "Circle Bracelets", href: "/circle/bracelets" },
-      ],
-      featured: {
-          title: "Circle Highlights",
-          href: "/circle/featured",
-          description: "Discover the versatility of our Circle collection.",
-          image: "/images/circle-collection.jpg" 
-      }
+    title: "The Circle",
+    href: "/circle",
+    description:
+      "Timeless and elegant, our circle collection is perfect for everyday wear.",
+    subitems: [
+      { title: "Circle Necklaces", href: "/circle/necklaces" },
+      { title: "Circle Earrings", href: "/circle/earrings" },
+      { title: "Circle Rings", href: "/circle/rings" },
+      { title: "Circle Bracelets", href: "/circle/bracelets" },
+    ],
+    featured: {
+      title: "Circle Highlights",
+      href: "/circle/featured",
+      description: "Discover the versatility of our Circle collection.",
+      image: "/images/circle-collection.jpg",
+    },
   },
   {
-      title: "The Triangle",
-      href: "/triangle",
-      description: "Edgy and modern, our triangle collection is perfect for those who want to stand out.",
-      subitems: [
-          { title: "Triangle Necklaces", href: "/triangle/necklaces" },
-          { title: "Triangle Earrings", href: "/triangle/earrings" },
-          { title: "Triangle Rings", href: "/triangle/rings" },
-          { title: "Triangle Bracelets", href: "/triangle/bracelets" },
-      ],
-      featured: {
-          title: "Triangle Trends",
-          href: "/triangle/featured",
-          description: "Embrace the unique style of our Triangle collection.",
-          image: "/images/triangle-collection.jpg" 
-      }
+    title: "The Triangle",
+    href: "/triangle",
+    description:
+      "Edgy and modern, our triangle collection is perfect for those who want to stand out.",
+    subitems: [
+      { title: "Triangle Necklaces", href: "/triangle/necklaces" },
+      { title: "Triangle Earrings", href: "/triangle/earrings" },
+      { title: "Triangle Rings", href: "/triangle/rings" },
+      { title: "Triangle Bracelets", href: "/triangle/bracelets" },
+    ],
+    featured: {
+      title: "Triangle Trends",
+      href: "/triangle/featured",
+      description: "Embrace the unique style of our Triangle collection.",
+      image: "/images/triangle-collection.jpg",
+    },
   },
   {
-      title: "The Oval",
-      href: "/oval",
-      description: "Soft and feminine, our oval collection is perfect for adding a touch of elegance to any outfit.",
-      subitems: [
-          { title: "Oval Necklaces", href: "/oval/necklaces" },
-          { title: "Oval Earrings", href: "/oval/earrings" },
-          { title: "Oval Rings", href: "/oval/rings" },
-          { title: "Oval Bracelets", href: "/oval/bracelets" },
-      ],
-      featured: {
-          title: "Oval Elegance",
-          href: "/oval/featured",
-          description: "Experience the timeless beauty of our Oval collection.",
-          image: "/images/oval-collection.jpg" 
-      }
+    title: "The Oval",
+    href: "/oval",
+    description:
+      "Soft and feminine, our oval collection is perfect for adding a touch of elegance to any outfit.",
+    subitems: [
+      { title: "Oval Necklaces", href: "/oval/necklaces" },
+      { title: "Oval Earrings", href: "/oval/earrings" },
+      { title: "Oval Rings", href: "/oval/rings" },
+      { title: "Oval Bracelets", href: "/oval/bracelets" },
+    ],
+    featured: {
+      title: "Oval Elegance",
+      href: "/oval/featured",
+      description: "Experience the timeless beauty of our Oval collection.",
+      image: "/images/oval-collection.jpg",
+    },
   },
 ];
 
-export const SubNavigation = () => {
+export const SubNavigation: FC = () => {
   return (
     <NavigationMenu className="hidden md:block max-w-full justify-center">
       <NavigationMenuList>
         {jewelryCategories.map((category) => (
           <NavigationMenuItem key={category.title}>
-            <NavigationMenuTrigger>{category.title}</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="font-light">{category.title}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className="grid w-[780px] lg:w-[1080px] xl:w-[1280px] gap-3 md:grid-cols-2 lg:grid-cols-3">
                 <div className="row-span-3">
@@ -169,7 +172,11 @@ export const SubNavigation = () => {
   );
 };
 
-const FeaturedItem = ({ item }: { item: { title: string; href: string; description: string; image: string } }) => (
+const FeaturedItem = ({
+  item,
+}: {
+  item: { title: string; href: string; description: string; image: string };
+}) => (
   <Link
     href={item.href}
     className="flex gap-4 rounded-lg p-2 transition-colors hover:bg-accent"
@@ -188,7 +195,7 @@ const FeaturedItem = ({ item }: { item: { title: string; href: string; descripti
   </Link>
 );
 
-const ListItem = React.forwardRef<
+const ListItem = forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, ...props }, ref) => {
@@ -203,7 +210,7 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="text-sm leading-none font-light">{title}</div>
           {children && (
             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
               {children}

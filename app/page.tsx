@@ -20,7 +20,6 @@ export default function Home() {
       <Spacer extraSmall />
       <HomeGift />
       <HomeExperience />
-      <Spacer extraSmall />
     </main>
   );
 }

@@ -7,7 +7,7 @@ import Image from "next/image";
 export const HomeBanner: FC = () => {
   return (
     <section>
-      <AppContainer className="relative max-w-full grid md:grid-cols-2 lg:grid-cols-3 border h-[85vh]">
+      <AppContainer className="relative max-w-full grid md:grid-cols-2 lg:grid-cols-3 h-[85vh]">
         <div className="absolute top-0 bottom-0 right-0 left-0 md:static grid items-center justify-cente backdrop-blur-sm hover:backdrop-blur-none transition-transform text-primary-foreground md:text-secondary-foreground">
           <div className="text-center space-y-4 p-4 md:p-0">
             <TypographyH1>Iconic Gifts since 1837</TypographyH1>
