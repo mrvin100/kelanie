@@ -6,6 +6,8 @@ import { Spacer } from "./spacer";
 import { FooterForm } from "./footer-form";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Button } from "../ui/button";
+import * as motion from "motion/react-client";
+
 enum FooterLinkGroup {
   CLIENT_CARE = "Client Care",
   OUR_COMPANY = "Our Company",
@@ -140,18 +142,31 @@ const footerLinks: FooterLink[] = [
 ];
 
 export const Footer: FC = () => {
+  const list = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: -100 },
+  };
   return (
     <section>
-      <Button variant={"secondary"} className="w-full border-primary bg-stone-50" asChild>
+      <Button
+        variant={"secondary"}
+        className="w-full border-primary bg-stone-50"
+        asChild
+      >
         <Link href={"/"}>HOME</Link>
       </Button>
       <AppContainer className="max-w-full px-8 sm:px-4 lg:px-6">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 justify-center">
-          <div>
+          <motion.div initial="hidden" whileInView="visible" variants={list}>
             <TypographyH3 className="my-4">
               {FooterLinkGroup.CLIENT_CARE}
             </TypographyH3>
-            <div className="flex flex-col gap-2">
+            <motion.div className="flex flex-col gap-2" variants={item}>
               {footerLinks
                 .filter((link) => link.group === FooterLinkGroup.CLIENT_CARE)
                 .map((element, i) => (
@@ -163,13 +178,13 @@ export const Footer: FC = () => {
                     {element.text}
                   </Link>
                 ))}
-            </div>
-          </div>
-          <div>
+            </motion.div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" variants={list}>
             <TypographyH3 className="my-4">
               {FooterLinkGroup.OUR_COMPANY}
             </TypographyH3>
-            <div className="flex flex-col gap-2">
+            <motion.div className="flex flex-col gap-2" variants={item}>
               {footerLinks
                 .filter((link) => link.group === FooterLinkGroup.OUR_COMPANY)
                 .map((element, i) => (
@@ -181,13 +196,13 @@ export const Footer: FC = () => {
                     {element.text}
                   </Link>
                 ))}
-            </div>
-          </div>
-          <div>
+            </motion.div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" variants={list}>
             <TypographyH3 className="my-4">
               {FooterLinkGroup.RELATED_KELANIE_SITES}
             </TypographyH3>
-            <div className="flex flex-col gap-2">
+            <motion.div className="flex flex-col gap-2" variants={item}>
               {footerLinks
                 .filter(
                   (link) => link.group === FooterLinkGroup.RELATED_KELANIE_SITES
@@ -201,10 +216,10 @@ export const Footer: FC = () => {
                     {element.text}
                   </Link>
                 ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <div className="hidden lg:block"></div>
-          <div>
+          <motion.div initial="hidden" whileInView="visible" variants={list}>
             <TypographyH3 className="my-4">Latest from Kelanie</TypographyH3>
             <TypographyP>
               Be the first to know about exciting new designs, special events,
@@ -213,7 +228,7 @@ export const Footer: FC = () => {
             <Spacer extraSmall />
             <FooterForm />
             <Spacer extraSmall />
-            <div className="space-x-3 space-y-3">
+            <motion.div className="space-x-3 space-y-3" variants={item}>
               <Button variant={"secondary"} size={"icon"}>
                 <Instagram className="inline-block w-6 h-6" />
               </Button>
@@ -229,8 +244,8 @@ export const Footer: FC = () => {
               <Button variant={"secondary"} size={"icon"}>
                 <Youtube className="inline-block w-6 h-6" />
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </AppContainer>
       <Spacer extraSmall />

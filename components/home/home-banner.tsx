@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { AppContainer } from "../global";
 import { TypographyH1, TypographyP } from "../ui/typographies";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 import Image from "next/image";
+import * as motion from "motion/react-client";
 
 export const HomeBanner: FC = () => {
   return (
@@ -15,12 +16,19 @@ export const HomeBanner: FC = () => {
               Celebrate every facet of love this holiday with iconic gifts from
               Tiffany & Co.
             </TypographyP>
-            <Button variant={"outline"} className="font-light text-base p-4 text-secondary-foreground">
+            <motion.button
+              className="font-light text-base px-4 py-3 text-secondary-foreground border"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
               Shop Now
-            </Button>
+            </motion.button>
           </div>
         </div>
-        <div className="bg-red-50">
+        <motion.div
+          transition={{ ease: "easeOut", duration: 2 }}
+          className="bg-red-50"
+        >
           <Image
             src={"/home_banner_image1.jpeg"}
             alt="home banner image"
@@ -28,7 +36,7 @@ export const HomeBanner: FC = () => {
             width={1000}
             className="object-cover h-full"
           />
-        </div>
+        </motion.div>
         <div className="bg-muted/5 hidden lg:block">
           <Image
             src={"/home_banner_image4.jpeg"}

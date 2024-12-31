@@ -1,10 +1,7 @@
 import { FC } from "react";
+import * as motion from "motion/react-client";
 import { AppContainer, Spacer } from "../global";
-import {
-  TypographyH1,
-  TypographyH4,
-  TypographyP,
-} from "../ui/typographies";
+import { TypographyH1, TypographyH4, TypographyP } from "../ui/typographies";
 import Image from "next/image";
 
 export const HomeCategories: FC = () => {
@@ -17,7 +14,7 @@ export const HomeCategories: FC = () => {
     { title: "Home", image: "/images/category_image6.jpg" },
   ];
   return (
-    <section>
+    <motion.section>
       <AppContainer>
         <Spacer tooSmall />
         <div className="text-center space-y-3">
@@ -39,7 +36,7 @@ export const HomeCategories: FC = () => {
           ))}
         </div>
       </AppContainer>
-    </section>
+    </motion.section>
   );
 };
 
@@ -50,11 +47,19 @@ interface CategoryCardType {
 
 function CategoryCard({ image, title }: CategoryCardType) {
   return (
-    <div>
+    <motion.div
+      whileHover={{
+        scale: 1.1,
+        transition: { duration: 0.2 },
+      }}
+      drag
+      dragTransition={{ power: 0.2 }}
+      whileTap={{ scale: 0.9, rotate: 3 }}
+    >
       <Image src={image} alt="category image" height={400} width={400} />
       <TypographyH4 className="text-center font-normal mt-2">
         {title}
       </TypographyH4>
-    </div>
+    </motion.div>
   );
 }

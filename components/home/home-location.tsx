@@ -1,13 +1,14 @@
 import { ChevronRight } from "lucide-react";
+import * as motion from "motion/react-client";
 import { AppContainer } from "../global";
 import { Button } from "../ui/button";
 import { TypographyH2, TypographyP } from "../ui/typographies";
 import Image from "next/image";
 import { FC } from "react";
 
-export const HomeLocation:FC = () => {
+export const HomeLocation: FC = () => {
   return (
-    <section>
+    <motion.section initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
       <AppContainer className="text-center grid md:grid-cols-3 items-center gap-4 max-w-full">
         <Image
           src={"/home_location_image.jpg"}
@@ -32,6 +33,6 @@ export const HomeLocation:FC = () => {
           </Button>
         </div>
       </AppContainer>
-    </section>
+    </motion.section>
   );
 };
