@@ -8,7 +8,7 @@ export const HomePublication = () => {
   return (
     <section>
       <AppContainer className="text-center grid md:grid-cols-3 items-center gap-4 max-w-full">
-        <div className="order-last md:-order-none md:ml-4">
+        <div className="order-last md:-order-none md:ml-4 p-4 md:p-0">
           <TypographyH2>A Kelanie Holiday Awaits</TypographyH2>
           <TypographyP className="text-sm md:max-w-xs mx-auto">
             This season, discover a place where every act of love is celebrated.

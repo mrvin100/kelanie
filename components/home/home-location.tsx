@@ -8,7 +8,6 @@ export const HomeLocation = () => {
   return (
     <section>
       <AppContainer className="text-center grid md:grid-cols-3 items-center gap-4 max-w-full">
-        {/* <div className="md:col-span-2 border"> */}
         <Image
           src={"/home_location_image.jpg"}
           alt="Office loaction image"
@@ -16,15 +15,14 @@ export const HomeLocation = () => {
           width={1000}
           className="w-full h-full md:col-span-2 block"
         />
-        {/* </div> */}
-        <div className="md:ml-4 col-span-1">
+        <div className=" md:col-span-1 p-4 md:p-0">
           <TypographyH2>Holiday Wonder Awaits at The Landmark</TypographyH2>
-          <TypographyP className="text-sm md:max-w-xs mx-auto">
+          <TypographyP className="text-sm md:max-w-sm mx-auto">
             In celebration of the festive season, The Landmark has been
             transformed with captivating installations. Experience a glittering
-            façade that only Tiffany could imagine, the House’s famed holiday
+            façade that only Kelanie could imagine, the House’s famed holiday
             windows and Jean Schlumberger’s majestic Bird on a Rock perched atop
-            the building. <br />
+            the building. <br /> <br />
             Photograph by Ricky Zehavi
           </TypographyP>
           <Button variant={"link"}>

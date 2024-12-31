@@ -13,6 +13,7 @@ export default function Home() {
       <HomeLocation />
       <Spacer extraSmall />
       <HomePublication />
+      <Spacer extraSmall />
       <HomeGift />
       <HomeExperience />
       <Spacer extraSmall />
