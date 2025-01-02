@@ -26,7 +26,7 @@ export const HomeCategories: FC = () => {
           </TypographyP>
         </div>
         <Spacer extraSmall />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 justify-center overflow-hidden p-4 lg:p-0">
           {categories.map((category) => (
             <CategoryCard
               key={category.title}
@@ -48,8 +48,9 @@ interface CategoryCardType {
 function CategoryCard({ image, title }: CategoryCardType) {
   return (
     <motion.div
+    initial={{scale: .95}}
       whileHover={{
-        scale: 1.1,
+        scale: 1,
         transition: { duration: 0.2 },
       }}
       drag
